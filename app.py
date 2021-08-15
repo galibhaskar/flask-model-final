@@ -10,6 +10,11 @@ app=Flask(__name__)
 run_with_ngrok(app)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+
+@app.route("/",methods=['GET'])
+def home():
+  return "hello world"
+
 @app.route("/predict", methods=['POST'])
 @cross_origin()
 def predict():
